@@ -1,0 +1,14 @@
+.minhaModal{
+  width: 300px;
+  height: 150px;
+  border: 1px solid grey;
+  text-align: center;
+  position: fixed;
+  top: 300px;
+  left: 500px;
+  background-color:rgb(243, 241, 240);
+}
+.cw{
+  width: 50%;
+}
+

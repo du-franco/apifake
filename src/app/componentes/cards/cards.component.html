@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let item of livros" class="col card mx-1" style="justify-content: center; background-color: antiquewhite;">
+      <img src="{{item.foto}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title text-center">{{item.nome}}</h5>
+        <h6 class="card-title text-center">Autor: {{item.autor}}</h6>
+        <p class="card-text"></p>
+        <button (click)='editar(item.id)' type="button" class="btn btn-secondary mx-1"><img src="assets/img/edit.png"></button>
+        <button (click)='mostrarModal(item.id)' type="button" class="btn btn-danger"><img src="assets/img/delete.png"></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="isModal">
+  <div class="minhaModal">
+    <div class="tituloModal bg-danger text-white">
+      <h5>Aviso</h5>
+    </div>
+    <h6>Confirma essa operação?</h6>
+    <button class="btn btn-outline-danger mx-1" (click)="cancelarAcao()">Cancelar</button>
+    <button class="btn btn-danger mx-1" (click)="confirmarAcao()">Confirmar</button>
+  </div>
+</div>

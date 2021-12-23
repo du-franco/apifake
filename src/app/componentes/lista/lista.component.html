@@ -1,0 +1,39 @@
+<h2>Lista de Livros</h2>
+
+<button routerLink="/add" type="button" class="btn btn-dark">Cadastrar Livro</button>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Foto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of livros">
+      <th>{{item.id}}</th>
+      <td>{{item.nome}}</td>
+      <td>{{item.autor}}</td>
+      <td><img class="foto" src="{{item.foto}}"></td>
+      <td>
+        <button (click)='editar(item.id)' type="button" class="btn btn-primary">Editar</button>
+      </td>
+      <td>
+        <button (click)='mostrarModal(item.id)' type="button" class="btn btn-danger">Excluir</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<div *ngIf= "isModal">
+  <div class="minhaModal">
+    <div class="tituloModal bg-danger text-white">
+      <h5>Aviso</h5>
+    </div>
+    <h6>Confirma essa operação?</h6>
+    <button class="btn btn-outline-danger mx-1" (click)="cancelarAcao()">Cancelar</button>
+    <button class="btn btn-danger mx-1" (click)="confirmarAcao()">Confirmar</button>
+  </div>
+</div>
